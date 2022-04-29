@@ -18,7 +18,7 @@ zeebe:
   clusterSize: 1
   partitionCount: 1
   replicationFactor: 1
-  pvcSize: 10Gi
+  pvcSize: 2Gi
 
 zeebe-gateway:
   replicas: 1
@@ -40,11 +40,14 @@ elasticsearch:
       cpu: "1000m"
       memory: "512M"
 
+  # Shrink default JVM heap.
+  esJavaOpts: "-Xmx128m -Xms128m"
+
   # Request smaller persistent volumes.
   volumeClaimTemplate:
     accessModes: [ "ReadWriteOnce" ]
     storageClassName: "standard"
     resources:
       requests:
-        storage: 15Gi
+        storage: 2Gi
 
