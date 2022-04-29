@@ -722,7 +722,13 @@ identity:
       #     management-password: myManagementPasswordKey
       #     tls-keystore-password: myTlsKeystorePasswordKey
       #     tls-truestore-password: myTlsTruestorePasswordKey
-      existingSecret: ""
+      existingSecret:
+        name: keycloakSecret
+        keyMapping:
+          admin-password: admin
+          management-password: management
+      #   tls-keystore-password: myTlsKeystorePasswordKey
+      #   tls-truststore-password: myTlsTruestorePasswordKey
 
   # ServiceAccount configuration for the service account where the identity pods are assigned to
   serviceAccount:
